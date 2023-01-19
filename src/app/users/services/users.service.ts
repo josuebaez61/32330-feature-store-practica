@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/core/models/app-state.model';
 import { IUser } from '../models/user.model';
 import { selectTotalNumberOfUsers, selectUsersData } from '../store/user.selectors';
-import { loadUsers } from '../store/user.actions';
+import { loadUsers, resetUsers } from '../store/user.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,10 @@ export class UsersService {
   }
 
   loadUsers(page: number, per_page: number): void {
-    this.store.dispatch(loadUsers({ page, per_page }))
+    this.store.dispatch(loadUsers({ page, per_page }));
+  }
+
+  resetUsers(): void {
+    this.store.dispatch(resetUsers());
   }
 }
