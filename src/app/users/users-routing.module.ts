@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { UsersPageComponent } from './pages/users-page/users-page.component';
 
 const routes: Routes = [
   {
-    path: 'users',
-    loadChildren: () => import('./users/users.module').then((module) => module.UsersModule),
+    path: '',
+    component: UsersPageComponent,
   },
 ];
 
@@ -13,10 +14,10 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes),
   ],
   exports: [
     RouterModule,
-  ]
+  ],
 })
-export class AppRoutingModule { }
+export class UsersRoutingModule { }
